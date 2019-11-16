@@ -5,19 +5,12 @@ __BB_CONFIG_FILE="${__BB_LOCAL_DIR}/bb-config.zsh"
 
 source "$__BB_CONFIG_FILE"
 
-function __exit() {
-    unset __BB_CONFIG_FILE;
-    unset __BB_LOCAL_DIR;
-    unset __BB_TARGET;
-    exit $1
-}
-
 function __bb_help() {
     echo "help menu"
 }
 
 function __bb_backup() {
-    echo "backup"
+    borg "${__BB_OPTIONS[@]}" create "${BORG_REPO}"::"$__BB_ARCHIVE_NAME" "${__BB_TARGETS[@]}"
 }
 
 function __bb_edit() {
@@ -42,5 +35,3 @@ case "$1" in
         echo "invalid command '$1'";
     ;;
 esac
-
-__exit 0
