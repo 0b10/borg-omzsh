@@ -1,5 +1,7 @@
 #!/usr/bin/zsh
 
+[[ -z $BORG_REPO ]] && echo "you must export BORG_REPO from your zshrc first" && exit 1
+
 __BB_LOCAL_DIR="$(dirname $0)/"
 __BB_CONFIG_FILE="${__BB_LOCAL_DIR}/bb-config.zsh"
 

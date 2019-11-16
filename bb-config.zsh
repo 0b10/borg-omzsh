@@ -1,7 +1,5 @@
 #!/usr/bin/zsh
 
-export BORG_REPO="${HOME}/.backup/borg"
-
 __BB_TARGETS=(
     "$(dirname $0)/bb-config.zsh"
 )
