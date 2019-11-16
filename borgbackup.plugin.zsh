@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 
 __BB_LOCAL_DIR="$(dirname $0)/"
-__BB_CONFIG_FILE="${__BB_LOCAL_DIR}/bb-config.zsh"
+__BB_CONFIG_FILE="${__BB_LOCAL_DIR}/borgbackup.config.zsh"
 
 source "$__BB_CONFIG_FILE"
 
