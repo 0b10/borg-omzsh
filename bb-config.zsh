@@ -3,11 +3,5 @@
 export BORG_REPO="~/.backup/borg"
 
 __BB_TARGETS=(
-    "/foo/bar"
-    "/foo/bar2"
+    "$(dirname $0)/bb-config.zsh"
 )
-
-# __B_TARGETS=(
-#     "/foo/bar"
-#     "/foo/bar2"
-# )
