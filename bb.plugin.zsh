@@ -20,9 +20,20 @@ function __bb_backup() {
     echo "backup"
 }
 
+function __bb_edit() {
+    if [[ -z $EDITOR ]]; then
+        $EDITOR $__BB_CONFIG_FILE;
+    else
+        vim $__BB_CONFIG_FILE;
+    fi
+}
+
 case "$1" in
     "backup"|"-b"|"--backup")
         __bb_backup;
+    ;;
+    "edit"|"-e"|"--edit")
+        __bb_edit
     ;;
     "help"|"-h"|"--help")
         __bb_help;
