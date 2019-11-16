@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 
 __BB_TARGETS=(
-    "$(dirname $0)/borgbackup.config.zsh"
+    "${HOME}/.config/bb-omzsh/borgbackup.config.zsh"
 )
 
 __BB_ARCHIVE_NAME="borgbackup-{hostname}-{now}"
