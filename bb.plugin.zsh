@@ -1,6 +1,7 @@
 #!/usr/bin/zsh
 
-BB_CONFIG_FILE="./bb-config.zsh"
+LOCAL_DIR="$(dirname $0)/"
+BB_CONFIG_FILE="${LOCAL_DIR}/bb-config.zsh"
 
 source "$BB_CONFIG_FILE"
 
@@ -13,7 +14,8 @@ function __backup() {
 }
 
 function __set_repo() {
-    echo "setting repo"
+    # $1 is the repo path
+    sed -i "/^export BORG_REPO=/c\export BORG_REPO=\"${1}\"" "$BB_CONFIG_FILE"
 }
 
 case "$1" in
@@ -21,7 +23,8 @@ case "$1" in
         __backup;
     ;;
     "setrepo"|"-r"|"--setrepo"|"--set-repo")
-        __set_repo;
+        [[ -z $2 ]] && echo "you must provide a repo path" && return 1
+        __set_repo $2; # pass in repo path
     ;;
     "help"|"-h"|"--help")
         __help;
