@@ -1,7 +1,5 @@
 #!/usr/bin/zsh
 
-[[ -z $BORG_REPO ]] && echo "you must export BORG_REPO from your zshrc first" && return 1
-
 __BB_LOCAL_DIR="$(dirname $0)/"
 __BB_CONFIG_FILE="${__BB_LOCAL_DIR}/bb-config.zsh"
 
@@ -23,17 +21,22 @@ function __bb_edit() {
     fi
 }
 
-case "$1" in
-    "backup"|"-b"|"--backup")
-        __bb_backup;
-    ;;
-    "edit"|"-e"|"--edit")
-        __bb_edit
-    ;;
-    "help"|"-h"|"--help")
-        __bb_help;
-    ;;
-    *)
-        echo "invalid command '$1'";
-    ;;
-esac
+function bb () {
+    [[ -z `command -v borg` ]] && echo "you must install borgbackup first" && return 1
+    [[ -z $BORG_REPO ]] && echo "you must export BORG_REPO from your zshrc first" && return 1
+    
+    case "$1" in
+        "backup"|"-b"|"--backup")
+            __bb_backup;
+        ;;
+        "edit"|"-e"|"--edit")
+            __bb_edit
+        ;;
+        "help"|"-h"|"--help")
+            __bb_help;
+        ;;
+        *)
+            echo "invalid command '$1'";
+        ;;
+    esac
+}
