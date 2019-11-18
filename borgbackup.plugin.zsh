@@ -15,9 +15,9 @@ source "$__BB_CONFIG_FILE";
 
 
 function __bb_help() {
-    echo -e "Usage: bb [COMMAND]";
+    echo -e "Usage: bb [OPTION]";
     
-    echo -e "\nCommands"
+    echo -e "\nOptions:"
     
     echo -e "    help, -h, --help \t\t show this help menu"
     
@@ -26,7 +26,7 @@ function __bb_help() {
     
     echo -e "    edit, -e, --edit \t\t edit the config file, add targets and/or options"
     
-    echo -e "\nExamples"
+    echo -e "\nExamples:"
     echo -e "    bb"
     echo -e "    bb edit"
     echo -e ""
@@ -50,7 +50,7 @@ function bb() {
     [[ -z $BORG_REPO ]] && echo "you must export BORG_REPO from your zshrc first" && return 1;
     
     case "$1" in
-        "backup"|"-b"|"--backup")
+        ""|"backup"|"-b"|"--backup")
             __bb_backup;
         ;;
         "edit"|"-e"|"--edit")
@@ -60,7 +60,8 @@ function bb() {
             __bb_help;
         ;;
         *)
-            __bb_backup;
+            echo "bb: invalid option -- '${1}'"
+            echo "Try 'bb help' for more information."
         ;;
     esac
 }
