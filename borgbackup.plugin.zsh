@@ -15,7 +15,21 @@ source "$__BB_CONFIG_FILE";
 
 
 function __bb_help() {
-    echo "help menu";
+    echo -e "Usage: bb [COMMAND]";
+    
+    echo -e "\nCommands"
+    
+    echo -e "    help, -h, --help \t\t show this help menu"
+    
+    echo -e "    backup, -b, --backup \t perform a backup. The same can be achieved
+    \t\t\t\t by typing 'bb' without any args"
+    
+    echo -e "    edit, -e, --edit \t\t edit the config file, add targets and/or options"
+    
+    echo -e "\nExamples"
+    echo -e "    bb"
+    echo -e "    bb edit"
+    echo -e ""
 }
 
 function __bb_backup() {
