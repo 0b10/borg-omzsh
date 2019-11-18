@@ -13,7 +13,6 @@ fi
 
 source "$__BB_CONFIG_FILE";
 
-
 function __bb_help() {
     echo -e "Usage: bb [OPTION]";
     
