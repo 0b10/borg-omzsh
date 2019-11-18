@@ -28,6 +28,7 @@ function __bb_edit() {
     else
         vim $__BB_CONFIG_FILE;
     fi
+    source "${HOME}/.zshrc" && echo ".zshrc reloaded"; # reloads the new config, because it's a script
 }
 
 function bb() {
