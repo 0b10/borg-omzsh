@@ -32,6 +32,7 @@ function __bb_help() {
 }
 
 function __bb_backup() {
+    source $__BB_CONFIG_FILE; # because it's a script, and stale state between shells can occur
     borg "${__BB_OPTIONS[@]}" create "${BORG_REPO}"::"$__BB_ARCHIVE_NAME" "${__BB_TARGETS[@]}";
 }
 
@@ -41,7 +42,6 @@ function __bb_edit() {
     else
         vim $__BB_CONFIG_FILE;
     fi
-    source "${HOME}/.zshrc" && echo ".zshrc reloaded"; # reloads the new config, because it's a script
 }
 
 function bb() {
