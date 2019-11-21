@@ -2,11 +2,11 @@
 
 __BB_LOCAL_DIR="$(dirname $0)/";
 __BB_CONFIG_TEMPLATE="${__BB_LOCAL_DIR}/borgbackup.config.template";
-__BB_CONFIG_FILE="${HOME}/.config/bb-omzsh/borgbackup.config.zsh";
+__BB_CONFIG_FILE="${HOME}/.config/bb-zsh/borgbackup.config.zsh";
 
 # if not e, if naugthy..
 if [[ ! -e "$__BB_CONFIG_FILE" ]]; then
-    # make a config under .config/bb-omzsh
+    # make a config under .config/bb-zsh
     mkdir -p `dirname ${__BB_CONFIG_FILE}`;
     cp ${__BB_CONFIG_TEMPLATE} ${__BB_CONFIG_FILE};
 fi
