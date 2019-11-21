@@ -3,7 +3,7 @@
 # targets must be full paths, because relative paths are appended to the cwd - you can change
 #  this behaviour in a borgbackup config file.
 __BB_TARGETS=(
-    "${HOME}/.config/bb-omzsh/borgbackup.config.zsh"
+    "${HOME}/.config/bb-zsh/borgbackup.config.zsh"
 )
 
 __BB_ARCHIVE_NAME="borgbackup-{hostname}-{now}"
