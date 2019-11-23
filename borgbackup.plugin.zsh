@@ -38,9 +38,9 @@ function __bb_backup() {
 
 function __bb_edit() {
     if [[ -z $EDITOR ]]; then
-        $EDITOR $__BB_CONFIG_FILE;
-    else
         vim $__BB_CONFIG_FILE;
+    else
+        $EDITOR $__BB_CONFIG_FILE;
     fi
 }
 
