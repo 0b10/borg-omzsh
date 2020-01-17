@@ -1,14 +1,24 @@
 #!/usr/bin/zsh
 
+# this will contain a single directory - ${HOSTNAME}, and an archive of that directory:
+#  ${HOSTNAME}.tar.gz. Anything else placed into this directory will be ignored. All mamually backed up
+#  files and borg archives are/should dbe put into ./${HOSTNAME}.
+__BB_BACKUP_DIR="${HOME}/.backup";
+
 # targets must be full paths, because relative paths are appended to the cwd - you can change
 #  this behaviour in a borgbackup config file.
 __BB_TARGETS=(
     "${HOME}/.config/bb-zsh/borgbackup.config.zsh"
 )
 
-__BB_ARCHIVE_NAME="borgbackup-{hostname}-{now}"
+__BB_ARCHIVE_NAME="borgbackup-{hostname}-{now}";
 
+# borg parameters
 __BB_OPTIONS=(
     "--info"
     "--progress"
 )
+
+# borg backups are always archived, but sometimes you may want to archive the entire backup directory tree
+#  to make transporting the file easier - essentially a single archive @ ${__BB_BACKUP_DIR}/${HOSTNAME}.tar.gz
+__SHOULD_ARCHIVE=false;
